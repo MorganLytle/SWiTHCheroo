@@ -88,6 +88,39 @@ public class SWiTHCheroo extends Activity  {
                         ch[ch_num-1].state = -1;
                         changeColor(ch_num-1);
                     }
+                    switch (ch_num) {
+                        case 1:
+                            textView = (TextView) findViewById(R.id.channel_1_text);
+                            textView.setText("Channel 1: ");
+                            break;
+                        case 2:
+                            textView = (TextView) findViewById(R.id.channel_2_text);
+                            textView.setText("Channel 2: ");
+                            break;
+                        case 3:
+                            textView = (TextView) findViewById(R.id.channel_3_text);
+                            textView.setText("Channel 3: ");
+                            break;
+                        case 4:
+                            textView = (TextView) findViewById(R.id.channel_4_text);
+                            textView.setText("Channel 4: ");
+                            break;
+                        case 5:
+                            textView = (TextView) findViewById(R.id.channel_5_text);
+                            textView.setText("Channel 5: ");
+                            break;
+                        case 6:
+                            textView = (TextView) findViewById(R.id.channel_6_text);
+                            textView.setText("Channel 6: ");
+                            break;
+                        case 7:
+                            textView = (TextView) findViewById(R.id.channel_7_text);
+                            textView.setText("Channel 7: ");
+                            break;
+                        default:
+                            textView = (TextView) findViewById(R.id.channel_8_text);
+                            textView.setText("Channel 8: ");
+                    }
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
