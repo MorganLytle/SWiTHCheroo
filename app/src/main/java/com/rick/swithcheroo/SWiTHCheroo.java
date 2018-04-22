@@ -45,6 +45,11 @@ public class SWiTHCheroo extends Activity  {
                     }
                     return true;
                 case R.id.navigation_dashboard :
+                    System.out.print("\nFuck me in the ass: \t" + (ch_num-1));
+                    if(ch[ch_num-1].state != -1){
+                        ch[ch_num-1].state = -1;
+                        changeColor(ch_num-1);
+                    }
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
@@ -68,6 +73,12 @@ public class SWiTHCheroo extends Activity  {
         setContentView(R.layout.activity_swi_thcheroo);
         ImageButton button = (ImageButton)findViewById(R.id.channel_1);
         ImageButton button1 = (ImageButton)findViewById(R.id.channel_2);
+        ImageButton button2 = (ImageButton)findViewById(R.id.channel_3);
+        ImageButton button3 = (ImageButton)findViewById(R.id.channel_4);
+        ImageButton button4 = (ImageButton)findViewById(R.id.channel_5);
+        ImageButton button5 = (ImageButton)findViewById(R.id.channel_6);
+        ImageButton button6 = (ImageButton)findViewById(R.id.channel_7);
+        ImageButton button7 = (ImageButton)findViewById(R.id.channel_8);
         mTextMessage = (TextView) findViewById(R.id.message);
         makeChannels();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -78,8 +89,9 @@ public class SWiTHCheroo extends Activity  {
             @Override
             public void onClick (View v){
                 System.out.print("\nchannel 1\n");
+                flipState(0);
                 changeColor(0);
-                next_page(v);
+                //next_page(v);
             }
         });
         button1.setOnClickListener( new View.OnClickListener()
@@ -87,15 +99,68 @@ public class SWiTHCheroo extends Activity  {
             @Override
             public void onClick (View v){
                 System.out.print("\nchannel 2\n");
-                if(ch[1].state != -1){
-                    if(ch[1].state == 0){
-                        ch[1].state = 1;
-                    }
-                    else{
-                        ch[1].state = 0;
-                    }
-                }
+                flipState(1);
                 changeColor(1);
+                //next_page(v);
+            }
+        });
+        button2.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                System.out.print("\nchannel 3\n");
+                flipState(2);
+                changeColor(2);
+                //next_page(v);
+            }
+        });
+        button3.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                System.out.print("\nchannel 4\n");
+                flipState(3);
+                changeColor(3);
+                //next_page(v);
+            }
+        });
+        button4.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                System.out.print("\nchannel 5\n");
+                flipState(4);
+                changeColor(4);
+                //next_page(v);
+            }
+        });
+        button5.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                System.out.print("\nchannel 6\n");
+                flipState(5);
+                changeColor(5);
+                //next_page(v);
+            }
+        });
+        button6.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                System.out.print("\nchannel 7\n");
+                flipState(6);
+                changeColor(6);
+                //next_page(v);
+            }
+        });
+        button7.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                System.out.print("\nchannel 8\n");
+                flipState(7);
+                changeColor(7);
                 //next_page(v);
             }
         });
@@ -178,6 +243,16 @@ public class SWiTHCheroo extends Activity  {
 
 
         }
+     public void flipState(int num){
+         if(ch[num].state != -1){
+             if(ch[num].state == 0){
+                 ch[num].state = 1;
+             }
+             else{
+                 ch[num].state = 0;
+             }
+         }
+     }
 
 
 }
