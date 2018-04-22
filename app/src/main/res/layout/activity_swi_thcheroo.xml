@@ -18,7 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp" >
+            android:paddingRight="16dp">
+
+            <TextView
+                android:id="@+id/connected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -77,6 +83,16 @@
             android:paddingRight="16dp"
             android:paddingTop="50dp">
 
+
+            <Switch
+                android:id="@+id/bluetooth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/channel_4"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="127dp"
+                android:text="Bluetooth"
+                tools:textColor="@android:color/darker_gray" />
 
             <ImageButton
                 android:id="@+id/channel_1"
