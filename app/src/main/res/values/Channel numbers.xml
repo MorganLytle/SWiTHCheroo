@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
         <string-array name="Channel_Number">
-            <item>Channel 1</item>
-            <item>Channel 2</item>
-            <item>Channel 3</item>
-            <item>Channel 4</item>
-            <item>Channel 5</item>
-            <item>Channel 6</item>
-            <item>Channel 7</item>
-            <item>Channel 8</item>
+            <item>CH 1</item>
+            <item>CH 2</item>
+            <item>CH 3</item>
+            <item>CH 4</item>
+            <item>CH 5</item>
+            <item>CH 6</item>
+            <item>CH 7</item>
+            <item>CH 8</item>
         </string-array>
     </resources>
