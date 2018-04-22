@@ -67,23 +67,7 @@ public class SWiTHCheroo extends Activity  {
             @Override
             public void onClick (View v){
                 System.out.print("\nchannel 1\n");
-                if(ch[0].state != -1) {
-                    if(ch[0].state == 1){
-                        ch[0].setState(0);
-                    }
-                    else{
-                        ch[0].setState(1);
-                    }
-                }
-
-                switch(ch[0].state){
-                    case -1:
-                        break;
-                    case 0:
-                        break;
-                    default:
-
-                }
+                changeColor(0);
                 next_page(v);
             }
         });
@@ -92,6 +76,7 @@ public class SWiTHCheroo extends Activity  {
             @Override
             public void onClick (View v){
                 System.out.print("\nchannel 2\n");
+                changeColor(1);
                 next_page(v);
             }
         });
@@ -123,6 +108,65 @@ public class SWiTHCheroo extends Activity  {
             ch[i] = new Channel_obj(i+1);
         }
     }
+    public void changeColor(int num){
+        if(ch[num].state != -1) {
+            if(ch[num].state == 1){
+                ch[num].setState(0);
+            }
+            else{
+                ch[num].setState(1);
+            }
+        }
+
+        switch(ch[num].state){
+            case -1:
+                break;
+            case 0:
+                break;
+            default:
+
+        }
+        ImageButton button1;
+        switch(num) {
+            case 0:
+                button1 = (ImageButton) findViewById(R.id.channel_1);
+                break;
+            case 1:
+                button1 = (ImageButton) findViewById(R.id.channel_2);
+                break;
+            case 2:
+                button1 = (ImageButton) findViewById(R.id.channel_3);
+                break;
+            case 3:
+                button1 = (ImageButton) findViewById(R.id.channel_4);
+                break;
+            case 4:
+                button1 = (ImageButton) findViewById(R.id.channel_5);
+                break;
+            case 5:
+                button1 = (ImageButton) findViewById(R.id.channel_6);
+                break;
+            case 6:
+                button1 = (ImageButton) findViewById(R.id.channel_7);
+                break;
+            case 7:
+                button1 = (ImageButton) findViewById(R.id.channel_8);
+                break;
+            default:
+                button1 = (ImageButton) findViewById(R.id.channel_8);
+        }
+        if(ch[num].state == -1) { //grey
+            button1.setImageResource(R.drawable.power_symbol_grey);
+        }
+        else if(ch[num].state == 0) {//red
+            button1.setImageResource(R.drawable.power_symbol_red);
+        }
+        else { //green
+            button1.setImageResource(R.drawable.power_symbol_green);
+        }
+
+
+        }
 
 
 }
