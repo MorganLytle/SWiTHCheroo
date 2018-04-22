@@ -40,7 +40,7 @@ public class SWiTHCheroo extends Activity  {
                         ch[ch_num-1].state = 0;
                         setName();
                         ch[ch_num-1].setName(ch_name);
-
+                        changeColor(ch_num-1);
                         System.out.println("ch num: "+ (ch_num)+ "ch name: "+ch[ch_num-1].name);
                     }
                     return true;
@@ -87,8 +87,16 @@ public class SWiTHCheroo extends Activity  {
             @Override
             public void onClick (View v){
                 System.out.print("\nchannel 2\n");
+                if(ch[1].state != -1){
+                    if(ch[1].state == 0){
+                        ch[1].state = 1;
+                    }
+                    else{
+                        ch[1].state = 0;
+                    }
+                }
                 changeColor(1);
-                next_page(v);
+                //next_page(v);
             }
         });
 
@@ -129,23 +137,6 @@ public class SWiTHCheroo extends Activity  {
         }
     }
     public void changeColor(int num){
-        if(ch[num].state != -1) {
-            if(ch[num].state == 1){
-                ch[num].setState(0);
-            }
-            else{
-                ch[num].setState(1);
-            }
-        }
-
-        switch(ch[num].state){
-            case -1:
-                break;
-            case 0:
-                break;
-            default:
-
-        }
         ImageButton button1;
         switch(num) {
             case 0:
