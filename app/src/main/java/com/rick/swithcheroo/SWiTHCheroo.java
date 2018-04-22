@@ -1,6 +1,9 @@
 package com.rick.swithcheroo;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +15,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.io.OutputStream;
+import java.util.UUID;
 
 public class SWiTHCheroo extends Activity  {
 
@@ -23,9 +32,15 @@ public class SWiTHCheroo extends Activity  {
     String ch_name;
     int ch_num;
     TextView textView;
-
+    BluetoothDevice myBluetooth = null;
+    BluetoothAdapter Badapter = null;
+    final String address = "20:16:08:10:47:51";
+    final String btname = "HC-06";
+    BluetoothSocket btSocket = null;
     EditText editText;
-    // Capture our button from layout
+    OutputStream mOut;
+    TextView connect;
+    UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");    // Capture our button from layout
 
     // Register the onClick listener with the implementation above
 
@@ -175,6 +190,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 1\n");
                 flipState(0);
                 changeColor(0);
+                if(ch[ch_num-1].state != -1) {
+                    write("1");
+                }
                 //next_page(v);
             }
         });
@@ -185,6 +203,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 2\n");
                 flipState(1);
                 changeColor(1);
+                if(ch[ch_num-1].state != -1) {
+                    write("2");
+                }
                 //next_page(v);
             }
         });
@@ -195,6 +216,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 3\n");
                 flipState(2);
                 changeColor(2);
+                if(ch[ch_num-1].state != -1) {
+                    write("3");
+                }
                 //next_page(v);
             }
         });
@@ -205,6 +229,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 4\n");
                 flipState(3);
                 changeColor(3);
+                if(ch[ch_num-1].state != -1) {
+                    write("4");
+                }
                 //next_page(v);
             }
         });
@@ -215,6 +242,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 5\n");
                 flipState(4);
                 changeColor(4);
+                if(ch[ch_num-1].state != -1) {
+                    write("5");
+                }
                 //next_page(v);
             }
         });
@@ -225,6 +255,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 6\n");
                 flipState(5);
                 changeColor(5);
+                if(ch[ch_num-1].state != -1) {
+                    write("6");
+                }
                 //next_page(v);
             }
         });
@@ -235,6 +268,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 7\n");
                 flipState(6);
                 changeColor(6);
+                if(ch[ch_num-1].state != -1) {
+                    write("7");
+                }
                 //next_page(v);
             }
         });
@@ -245,6 +281,9 @@ public class SWiTHCheroo extends Activity  {
                 System.out.print("\nchannel 8\n");
                 flipState(7);
                 changeColor(7);
+                if(ch[ch_num-1].state != -1) {
+                    write("8");
+                }
                 //next_page(v);
             }
         });
@@ -270,6 +309,35 @@ public class SWiTHCheroo extends Activity  {
 
          editText = (EditText) findViewById(R.id.editText2);
 
+         Switch bluetooth = (Switch) findViewById(R.id.bluetooth);
+         connect = (TextView)findViewById(R.id.connected);
+         Boolean switchState = bluetooth.isChecked();
+         if(!switchState){
+             try {
+
+                 Badapter = BluetoothAdapter.getDefaultAdapter();
+                 myBluetooth = Badapter.getRemoteDevice(address);
+                 btSocket = myBluetooth.createRfcommSocketToServiceRecord(uuid);
+                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
+                 btSocket.connect();
+                 mOut = btSocket.getOutputStream();
+                 connect.setText("Trying to connect bt");
+             }catch (Exception e){
+                System.out.println("Connected not successful.");
+                connect.setText("Not connected");
+             }
+         }
+
+    }
+
+    public void write(String s){
+        try {
+            mOut.write(s.getBytes());
+            System.out.println("Sent: "+s.getBytes());
+            connect.setText("Writing: "+s.getBytes());
+        }catch(Exception e){
+            connect.setText("Cannot write");
+        }
     }
 
     public void setName(){
@@ -337,6 +405,4 @@ public class SWiTHCheroo extends Activity  {
              }
          }
      }
-
-
 }
