@@ -22,6 +22,7 @@ public class SWiTHCheroo extends Activity  {
 
     String ch_name;
     int ch_num;
+    TextView textView;
 
     EditText editText;
     // Capture our button from layout
@@ -36,30 +37,82 @@ public class SWiTHCheroo extends Activity  {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
-                    if (ch[ch_num-1].state == -1){
-                        ch[ch_num-1].state = 0;
+                    if (ch[ch_num - 1].state == -1) {
+                        ch[ch_num - 1].state = 0;
                         setName();
-                        ch[ch_num-1].setName(ch_name);
-                        changeColor(ch_num-1);
-                        System.out.println("ch num: "+ (ch_num)+ "ch name: "+ch[ch_num-1].name);
+                        System.out.println("name: " + ch_name);
+                        ch[ch_num - 1].setName(ch_name);
+
+                        changeColor(ch_num - 1);
+                        System.out.println("ch num: " + (ch_num) + "ch name: " + ch[ch_num - 1].name);
+
+                        switch (ch_num) {
+
+                            case 1:
+                                textView = (TextView) findViewById(R.id.channel_1_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                break;
+                            case 2:
+                                textView = (TextView) findViewById(R.id.channel_2_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                System.out.println("channel name" + ch[ch_num - 1].name);
+                                break;
+                            case 3:
+                                textView = (TextView) findViewById(R.id.channel_3_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                break;
+                            case 4:
+                                textView = (TextView) findViewById(R.id.channel_4_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                break;
+                            case 5:
+                                textView = (TextView) findViewById(R.id.channel_5_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                break;
+                            case 6:
+                                textView = (TextView) findViewById(R.id.channel_6_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                break;
+                            case 7:
+                                textView = (TextView) findViewById(R.id.channel_7_text);
+                                textView.setText(ch[ch_num - 1].name);
+                                break;
+                            default:
+                                textView = (TextView) findViewById(R.id.channel_8_text);
+                                textView.setText(ch[ch_num - 1].name);
+                        }
                     }
                     return true;
-                case R.id.navigation_dashboard :
+                case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
-                    for(int i =0; i< 8;i++){
+                    for (int i = 0; i < 8; i++) {
                         ch[i].clearState();
+                        changeColor(i);
+                        ch[i].setName(null);
                     }
+                    textView = (TextView) findViewById(R.id.channel_1_text);
+                    textView.setText("Channel 1: ");
+                    textView = (TextView) findViewById(R.id.channel_2_text);
+                    textView.setText("Channel 2: ");
+                    textView = (TextView) findViewById(R.id.channel_3_text);
+                    textView.setText("Channel 3: ");
+                    textView = (TextView) findViewById(R.id.channel_4_text);
+                    textView.setText("Channel 4: ");
+                    textView = (TextView) findViewById(R.id.channel_5_text);
+                    textView.setText("Channel 5: ");
+                    textView = (TextView) findViewById(R.id.channel_6_text);
+                    textView.setText("Channel 6: ");
+                    textView = (TextView) findViewById(R.id.channel_7_text);
+                    textView.setText("Channel 7: ");
+                    textView = (TextView) findViewById(R.id.channel_8_text);
+                    textView.setText("Channel 8: ");
                     return true;
             }
             return false;
         }
-
-
-
-
     };
 
     @Override
