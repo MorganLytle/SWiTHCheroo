@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class SWiTHCheroo extends Activity  {
 
-    private TextView mTextMessage;
+//    private TextView mTextMessage;
 
     Channel_obj ch [] = new Channel_obj[8];
 
@@ -36,7 +36,7 @@ public class SWiTHCheroo extends Activity  {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+//                    mTextMessage.setText(R.string.title_home);
                     if (ch[ch_num - 1].state == -1) {
                         ch[ch_num - 1].state = 0;
                         setName();
@@ -121,10 +121,10 @@ public class SWiTHCheroo extends Activity  {
                             textView = (TextView) findViewById(R.id.channel_8_text);
                             textView.setText("Channel 8: ");
                     }
-                    mTextMessage.setText(R.string.title_dashboard);
+//                    mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+//                    mTextMessage.setText(R.string.title_notifications);
                     for (int i = 0; i < 8; i++) {
                         ch[i].clearState();
                         changeColor(i);
@@ -164,7 +164,6 @@ public class SWiTHCheroo extends Activity  {
         ImageButton button5 = (ImageButton)findViewById(R.id.channel_6);
         ImageButton button6 = (ImageButton)findViewById(R.id.channel_7);
         ImageButton button7 = (ImageButton)findViewById(R.id.channel_8);
-        mTextMessage = (TextView) findViewById(R.id.message);
         makeChannels();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
