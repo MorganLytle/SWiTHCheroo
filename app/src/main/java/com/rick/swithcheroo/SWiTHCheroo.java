@@ -83,7 +83,11 @@ public class SWiTHCheroo extends Activity  {
                         }
                     }
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_dashboard :
+                    if(ch[ch_num-1].state != -1){
+                        ch[ch_num-1].state = -1;
+                        changeColor(ch_num-1);
+                    }
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
