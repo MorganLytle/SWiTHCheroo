@@ -1,12 +1,24 @@
 package com.rick.swithcheroo;
 
 public class Channel_obj {
-    boolean state;
+    int state;
     int num;
-    char Color;
+    String name;
 
-    public Channel_obj(){
-        state = false;
-        Color = 'r';
+    public Channel_obj(int num_ch){
+        state = -1;
+        num = num_ch;
+    }
+
+    public void setName(String n){
+        name = n;
+    }
+
+    public void clearState(){
+        state = -1;
+    }
+
+    public void setState(int i){
+        state = i;
     }
 }
