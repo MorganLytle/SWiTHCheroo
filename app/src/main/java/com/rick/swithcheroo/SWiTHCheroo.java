@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,6 +20,10 @@ public class SWiTHCheroo extends Activity  {
 
     Channel_obj ch [] = new Channel_obj[8];
 
+    String ch_name;
+    int ch_num;
+
+    EditText editText;
     // Capture our button from layout
 
     // Register the onClick listener with the implementation above
@@ -31,7 +36,13 @@ public class SWiTHCheroo extends Activity  {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+                    if (ch[ch_num-1].state == -1){
+                        ch[ch_num-1].state = 0;
+                        setName();
+                        ch[ch_num-1].setName(ch_name);
 
+                        System.out.println("ch num: "+ (ch_num)+ "ch name: "+ch[ch_num-1].name);
+                    }
                     return true;
                 case R.id.navigation_dashboard :
                     mTextMessage.setText(R.string.title_dashboard);
@@ -92,13 +103,22 @@ public class SWiTHCheroo extends Activity  {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Object item = parent.getItemAtPosition(pos);
-                System.out.println(item.toString());
+                String temp = item.toString();
+                ch_num = Integer.parseInt(temp);
+                System.out.println("ch num: "+ch_num);
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
 
+         editText = (EditText) findViewById(R.id.editText2);
+
     }
+
+    public void setName(){
+        ch_name = editText.getText().toString();
+    }
+
     public void next_page(View v) {
         Intent intent = new Intent(this, SWiTHCheroo.class);
         startActivity(intent);
