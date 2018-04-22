@@ -28,177 +28,70 @@
             android:layout_height="match_parent"
             android:paddingLeft="16dp"
             android:paddingRight="16dp" >
-            <Button
-                android:layout_width="96dp"
-                android:layout_height="wrap_content"
 
-                android:layout_alignParentRight="true"
-                android:text="other shit" />
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="167dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="167dp"
+                android:text="Channel Number: " />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="123dp"
+                android:text="Channel Name: " />
+
+            <EditText
+                android:id="@+id/editText2"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="108dp"
+                android:contentDescription="Channel_Name"
+                android:ems="10"
+                android:hint="Channel_Name"
+                android:inputType="text"
+                android:visibility="visible" />
+
         </RelativeLayout>
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="50dp">
+            android:paddingRight="16dp">
 
-
-            <ImageButton
+            <Button
                 android:id="@+id/channel_1"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentLeft="true"
+                android:text="channel1" />
 
-                android:contentDescription="channel_1"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_2"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
+            <Button
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/channel_1"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_3"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/channel_2"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_4"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/channel_3"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_5"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/channel_4"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_6"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/channel_5"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_7"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/channel_6"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-            <ImageButton
-                android:id="@+id/channel_8"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/channel_7"
-                android:scaleType="centerInside"
-                android:src="@drawable/power_symbol_grey" />
-
-            <TextView
-                android:id="@+id/channel_1_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_1"
-                android:layout_alignTop="@+id/channel_1"
-
-                android:inputType="textPersonName"
-                android:text="Channel 1:" />
-            <TextView
-                android:id="@+id/channel_2_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_2"
-                android:layout_alignTop="@+id/channel_2"
-
-                android:inputType="textPersonName"
-                android:text="Channel 2:" />
-            <TextView
-                android:id="@+id/channel_3_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_3"
-                android:layout_alignTop="@+id/channel_3"
-
-                android:inputType="textPersonName"
-                android:text="Channel 3:" />
-            <TextView
-                android:id="@+id/channel_4_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_4"
-                android:layout_alignTop="@+id/channel_4"
-
-                android:inputType="textPersonName"
-                android:text="Channel 4:" />
-            <TextView
-                android:id="@+id/channel_5_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_5"
-                android:layout_alignTop="@+id/channel_5"
-
-                android:inputType="textPersonName"
-                android:text="Channel 5:" />
-            <TextView
-                android:id="@+id/channel_6_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_6"
-                android:layout_alignTop="@+id/channel_6"
-
-                android:inputType="textPersonName"
-                android:text="Channel 6:" />
-            <TextView
-                android:id="@+id/channel_7_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_7"
-                android:layout_alignTop="@+id/channel_7"
-
-                android:inputType="textPersonName"
-                android:text="Channel 7:" />
-            <TextView
-                android:id="@+id/channel_8_text"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:layout_toRightOf="@+id/channel_8"
-                android:layout_alignTop="@+id/channel_8"
-
-                android:inputType="textPersonName"
-                android:text="Channel 8:" />
-
+                android:text="channel1" />
 
         </RelativeLayout>
 
